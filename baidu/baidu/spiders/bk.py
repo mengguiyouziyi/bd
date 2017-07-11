@@ -29,5 +29,9 @@ class BkSpider(scrapy.Spider):
 		item = response.meta.get('item')
 		if not item:
 			return
+		text = response.text
+		if not text:
+			print(str(item['id']) + ' no text')
+			return
 		item['htm'] = response.text
 		return item

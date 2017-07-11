@@ -9,14 +9,27 @@
 # import pymysql
 import codecs
 import os
+# from scrapy.exceptions import DropItem
+#
+#
+# class PricePipeline(object):
+#
+#     def process_item(self, item, spider):
+#         if item['price']:
+#             if item['price_excludes_vat']:
+#                 item['price'] = item['price'] * self.vat_factor
+#             return item
+#         else:
+#             raise DropItem("Missing price in %s" % item)
 
 
 class HtmlWriterPipeline(object):
+
 	def process_item(self, item, spider):
 		path = os.path.abspath('/data/menggui/bdbk_html/%s.html' % item['id'])
-
 		with codecs.open(path, 'w') as file:
 			file.write(item['htm'])
+			print(str(item['id']) + ' success')
 		return item
 
 
