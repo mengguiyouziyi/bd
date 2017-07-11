@@ -23,7 +23,7 @@ def send_key(key):
 	# mysql = pymysql.Connect(host='localhost', user='root', password='3646287', db='spiders', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
 	try:
 		with mysql.cursor() as cursor:
-			sql = """select id, quan_cheng from tyc_jichu_bj ORDER BY id limit 1000"""
+			sql = """select id, quan_cheng from tyc_jichu_bj ORDER BY id"""
 			cursor.execute(sql)
 			print('execute begain')
 			results = cursor.fetchall()
@@ -34,8 +34,8 @@ def send_key(key):
 	red = QueueRedis()
 
 	if values:
-		for value in values:
-			print(value)
+		for i, value in enumerate(values):
+			print(i+1)
 			red.send_to_queue(key, value)
 
 

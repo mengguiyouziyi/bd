@@ -12,27 +12,29 @@ from random import choice
 proxyServer = "http://proxy.abuyun.com:9020"
 
 # 代理隧道验证信息
-proxyUser = "H4XGPM790E93518D"
-proxyPass = "2835A47D56143D62"
+# proxyUser = "H4XGPM790E93518D"
+# proxyPass = "2835A47D56143D62"
 
 
-# proxyUser = "HJA1354AT829M77D"
-# proxyPass = "F222C0D807890356"
+proxyUser = "HS42FV2R583524HD"
+proxyPass = "BB5F3DAE917E484E"
 
-# proxyUser = "H8J738EHR4H5GE5D"
-# proxyPass = "3018672C5A167A3D"
+# proxyUser = "H20X28E37Z5R11UD"
+# proxyPass = "61CE0860F50555CB"
 
-# proxyUser = "HWAP93ES770B921D"
-# proxyPass = "FD67384CCCADBF04"
+# proxyUser = "H51N0CWJLZX5981D"
+# proxyPass = "24606F3C6193A99D"
 
-# proxyUser = "H24CFQ64JP06V1WD"
-# proxyPass = "FA1D98DF8F3E55FF"
+# proxyUser = "HL6O95146U41Z61D"
+# proxyPass = "8F2622D2D6A1A73F"
 #
+
 # proxyUser = "HQ78N3Y82239165D"
 # proxyPass = "AA99073C3271DBFA"
 #
-# proxyUser = "H8963415MP59046D"
-# proxyPass = "6C586451622880CB"
+
+# proxyUser = "HI4Z5PI5D1Y44S2D"
+# proxyPass = "5D698C9C15113ACE"
 
 # for Python3
 proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPass), "ascii")).decode("utf8")
