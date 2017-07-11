@@ -47,7 +47,9 @@ NEWSPIDER_MODULE = 'baidu.spiders'
 COOKIES_ENABLED = False
 
 # DEBUG INFO WARNING ERROR CRITICAL
-LOG_LEVEL = 'DEBUG'
+LOG_LEVEL = 'INFO'
+
+LOG_STDOUT = True
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
