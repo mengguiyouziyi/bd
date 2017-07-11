@@ -7,6 +7,10 @@ from os.path import dirname
 import pymysql
 from my_redis import QueueRedis
 
+import io
+import sys
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 father_path = os.path.abspath(dirname(__file__))
 sys.path.append(father_path)
 
@@ -19,7 +23,7 @@ def send_key(key):
 	# mysql = pymysql.Connect(host='localhost', user='root', password='3646287', db='spiders', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
 	try:
 		with mysql.cursor() as cursor:
-			sql = """select id, quan_cheng from tyc_jichu_bj ORDER BY id"""
+			sql = """select id, quan_cheng from tyc_jichu_bj ORDER BY id limit 1000"""
 			cursor.execute(sql)
 			print('execute begain')
 			results = cursor.fetchall()
