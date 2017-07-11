@@ -126,7 +126,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'baidu.pipelines.MysqlPipeline': 300,
+   'baidu.pipelines.HtmlWriterPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
