@@ -21,6 +21,7 @@ def send_key(key):
 		with mysql.cursor() as cursor:
 			sql = """select id, quan_cheng from tyc_jichu_bj ORDER BY id"""
 			cursor.execute(sql)
+			print('execute begain')
 			results = cursor.fetchall()
 			values = [str(i['id']) + '~' + i['quan_cheng'].strip() for i in results]
 	finally:
