@@ -7,9 +7,9 @@ from os.path import dirname
 import pymysql
 from my_redis import QueueRedis
 
-import io
-import sys
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+# import io
+# import sys
+# sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 father_path = os.path.abspath(dirname(__file__))
 sys.path.append(father_path)
