@@ -26,7 +26,8 @@ import os
 class HtmlWriterPipeline(object):
 
 	def process_item(self, item, spider):
-		path = os.path.abspath('/data1/spider/menggui/bdbk_html/%s.html' % item['id'])
+		# path = os.path.abspath('/data1/spider/menggui/bdbk_html/%s.html' % item['id'])
+		path = os.path.abspath('/home/lijian.sun/bdbk_html/%s.html' % item['id'])
 		with codecs.open(path, 'w', 'utf-8') as file:
 			file.write(item['htm'])
 			print(str(item['id']) + ' success')

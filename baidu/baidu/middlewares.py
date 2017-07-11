@@ -23,8 +23,8 @@ proxyServer = "http://proxy.abuyun.com:9020"
 # proxyUser = "H20X28E37Z5R11UD"
 # proxyPass = "61CE0860F50555CB"
 
-proxyUser = "H51N0CWJLZX5981D"
-proxyPass = "24606F3C6193A99D"
+# proxyUser = "H51N0CWJLZX5981D"
+# proxyPass = "24606F3C6193A99D"
 
 # proxyUser = "HL6O95146U41Z61D"
 # proxyPass = "8F2622D2D6A1A73F"
@@ -36,8 +36,8 @@ proxyPass = "24606F3C6193A99D"
 #
 
 
-# proxyUser = "HI4Z5PI5D1Y44S2D"
-# proxyPass = "5D698C9C15113ACE"
+proxyUser = "HI4Z5PI5D1Y44S2D"
+proxyPass = "5D698C9C15113ACE"
 
 # for Python3
 proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPass), "ascii")).decode("utf8")
