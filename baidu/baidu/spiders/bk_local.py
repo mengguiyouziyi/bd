@@ -26,7 +26,7 @@ class BkSpider(scrapy.Spider):
 		item = BaikeItem()
 		if not response.request.url:
 			return
-		id = re.search(r'\d+', response.request.url).group()
+		id = re.search(r'bdbk_html\/(\d+)', response.request.url).group(1)
 		quan_cheng = response.xpath('//dd[@lemmaWgt-lemmaTitle-title]//text()').extract_first()
 		texts = response.xpath('//div[@class="lemma-summary"]//text()').extract()
 		text = ''.join(texts)
