@@ -16,10 +16,10 @@ class BkSpider(scrapy.Spider):
 	start_urls = ['file:///data1/spider/menggui/bdbk_html/%s' % f for f in fs]
 
 	custom_settings = {
-		'LOG_LEVEL': 'DEBUG',
+		# 'LOG_LEVEL': 'DEBUG',
 		'DEFAULT_REQUEST_HEADERS': {},
 		'DOWNLOADER_MIDDLEWARES': {},
-		'ITEM_PIPELINES': {}
+		'ITEM_PIPELINES': {'baidu.pipelines.MysqlPipeline': 300}
 	}
 
 	def parse(self, response):
