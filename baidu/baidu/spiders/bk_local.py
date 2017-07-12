@@ -13,9 +13,9 @@ class BkSpider(scrapy.Spider):
 	/home/lijian.sun/bdbk_html/
 	"""
 	# fs = os.listdir(r'/data1/spider/menggui/bdbk_html/')
-	fs = os.listdir(r'/data/menggui/bdbk_html/')
-	# fs = os.listdir(r'/data1/spider/menggui/bdbk_html/')
-	start_urls = ['file:///data/menggui/bdbk_html/%s' % f for f in fs]
+	# fs = os.listdir(r'/data/menggui/bdbk_html/')
+	fs = os.listdir(r'/home/lijian.sun/bdbk_html/')
+	start_urls = ['/home/lijian.sun/bdbk_html/%s' % f for f in fs]
 
 	custom_settings = {
 		# 'LOG_LEVEL': 'DEBUG',
