@@ -28,7 +28,7 @@ class BkSpider(scrapy.Spider):
 		if not response.request.url:
 			return
 		id = re.search(r'bdbk_html\/(\d+)', response.request.url).group(1)
-		quan_cheng = response.xpath('//dd[@lemmaWgt-lemmaTitle-title]//text()').extract_first()
+		quan_cheng = response.xpath('//dd[@class="lemmaWgt-lemmaTitle-title"]/h1/text()').extract_first()
 		texts = response.xpath('//div[@class="lemma-summary"]//text()').extract()
 		print(texts)
 		text = ''.join(texts)
