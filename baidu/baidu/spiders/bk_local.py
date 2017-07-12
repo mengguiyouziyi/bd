@@ -23,6 +23,7 @@ class BkSpider(scrapy.Spider):
 	}
 
 	def parse(self, response):
+		print(response.url)
 		item = BaikeItem()
 		if not response.request.url:
 			return
