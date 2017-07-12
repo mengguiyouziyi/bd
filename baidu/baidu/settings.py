@@ -33,7 +33,7 @@ NEWSPIDER_MODULE = 'baidu.spiders'
 # ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-# CONCURRENT_REQUESTS = 1
+CONCURRENT_REQUESTS = 100
 
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
@@ -47,7 +47,7 @@ NEWSPIDER_MODULE = 'baidu.spiders'
 COOKIES_ENABLED = False
 
 # DEBUG INFO WARNING ERROR CRITICAL
-LOG_LEVEL = 'DEBUG'
+LOG_LEVEL = 'INFO'
 
 LOG_STDOUT = True
 

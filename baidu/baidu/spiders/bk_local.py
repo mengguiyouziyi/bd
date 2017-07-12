@@ -23,20 +23,20 @@ class BkSpider(scrapy.Spider):
 	}
 
 	def parse(self, response):
-		print(response.url)
 		item = BaikeItem()
 		if not response.request.url:
 			return
 		id = re.search(r'bdbk_html\/(\d+)', response.request.url).group(1)
 		quan_cheng = response.xpath('//dd[@class="lemmaWgt-lemmaTitle-title"]/h1/text()').extract_first()
 		texts = response.xpath('//div[@class="lemma-summary"]//text()').extract()
-		print(texts)
-		text = ''.join(texts)
+		if not texts:
+			return
+		text = ''.join([x.strip() for x in texts])
 		if not text:
 			# print(str(item['id']) + ' no text')
 			return
 
-		item['id'] = id
+		item['id'] = int(id)
 		item['quan_cheng'] = quan_cheng
 		item['intro'] = text
 		return item

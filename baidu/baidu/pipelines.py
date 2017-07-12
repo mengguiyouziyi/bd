@@ -34,7 +34,7 @@ class MysqlPipeline(object):
 		self.cursor = self.conn.cursor()
 
 	def process_item(self, item, spider):
-		sql = """insert into bdbaike_bj(id, quan_cheng, intro) VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE quan_cheng=VALUES(quan_cheng),  intro=VALUES(intro)"""
+		sql = """insert into bdbaike_bj(id, quan_cheng, intro) VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE id=VALUES(id), quan_cheng=VALUES(quan_cheng), intro=VALUES(intro)"""
 		args = (item["id"], item["quan_cheng"], item["intro"])
 		self.cursor.execute(sql, args=args)
 		self.conn.commit()
