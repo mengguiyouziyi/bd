@@ -7,6 +7,8 @@
 
 import base64
 from random import choice
+import codecs
+import datetime
 
 # 代理服务器
 proxyServer = "http://proxy.abuyun.com:9020"
@@ -57,6 +59,33 @@ class RetryMiddleware(object):
 		else:
 			return response
 
+	def process_exception(self, request, exception, spider):
+		return request.replace(url=request.url)
+
+
+class CustomFaillogMiddleware(object):
+	@classmethod
+	def from_crawler(cls, crawler):
+		return cls()
+
+	def process_response(self, request, response, spider):
+		if response.status >= 400:
+			reason = response.response_status_message(response.status)
+			self._faillog(request, u'HTTPERROR', reason, spider)
+		return response
+
+	def process_exception(self, request, exception, spider):
+		self._faillog(request, u'EXCEPTION', exception, spider)
+		return request
+
+	def _faillog(self, request, errorType, reason, spider):
+		with codecs.open('log/faillog.log', 'a', encoding='utf-8') as file:
+			file.write("%(now)s [%(error)s] %(url)s reason: %(reason)s \n" %
+			           {'now': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+			            'error': errorType,
+			            'url': request.url,
+			            'reason': reason})
+
 
 class RotateUserAgentMiddleware(object):
 	"""Middleware used for rotating user-agent for each request"""
@@ -70,5 +99,3 @@ class RotateUserAgentMiddleware(object):
 
 	def process_request(self, request, spider):
 		request.headers.setdefault('User-Agent', choice(self.agents))
-
-

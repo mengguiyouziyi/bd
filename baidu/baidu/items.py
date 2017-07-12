@@ -12,4 +12,4 @@ class BaikeItem(scrapy.Item):
 	# define the fields for your item here like:
 	id = scrapy.Field()
 	quan_cheng = scrapy.Field()
-	htm = scrapy.Field()
+	intro = scrapy.Field()
