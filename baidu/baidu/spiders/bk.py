@@ -24,7 +24,7 @@ class BkSpider(scrapy.Spider):
 			item['ncid'] = ncid
 			item['cname'] = cname
 			self.url = self.baike_url.format(cname=cname)
-			yield scrapy.Request(self.url, meta={'item': item, 'dont_redirect': True}, dont_filter=True)
+			yield scrapy.Request(self.url, meta={'item': item}, dont_filter=True)
 
 	def parse(self, response):
 		item = response.meta.get('item')
