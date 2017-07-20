@@ -38,7 +38,7 @@ proxyPass = "61CE0860F50555CB"
 # proxyUser = "HI4Z5PI5D1Y44S2D"
 # proxyPass = "5D698C9C15113ACE"
 
-# for Python3
+# for Python 3
 proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPass), "ascii")).decode("utf8")
 
 
