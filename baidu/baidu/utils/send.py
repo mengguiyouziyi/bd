@@ -23,7 +23,7 @@ def send_key(key):
 	# mysql = pymysql.Connect(host='localhost', user='root', password='3646287', db='spiders', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
 	try:
 		with mysql.cursor() as cursor:
-			sql = """select ncid, cname from comp_baseinfo ORDER BY id"""
+			sql = """select ncid, cname from comp_baseinfo ORDER BY ncid"""
 			print('execute begain')
 			cursor.execute(sql)
 			results = cursor.fetchall()
