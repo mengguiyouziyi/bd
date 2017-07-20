@@ -19,7 +19,7 @@ class HtmlWriterPipeline(object):
 		# path = os.path.abspath('/home/lijian.sun/cs_bk_html/%s.html' % item['ncid'])
 		with codecs.open(path, 'w', 'utf-8') as file:
 			file.write(item['htm'])
-			print(str(item['ncid']) + ' success')
+			print(str(item['ncid']) + ' down success')
 		return item
 
 
@@ -39,6 +39,6 @@ class MysqlPipeline(object):
 		args = (item["ncid"], item["cname"], item["intro"], item["crawl_time"])
 		self.cursor.execute(sql, args=args)
 		self.conn.commit()
-		print(str(item['ncid']) + ' success')
+		print(str(item['ncid']) + ' insert success')
 
 		return item

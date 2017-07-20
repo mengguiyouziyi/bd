@@ -32,7 +32,7 @@ class BkSpider(scrapy.Spider):
 			return
 		text = response.text
 		if not text:
-			print(str(item['ncid']) + ' no text')
+			# print(str(item['ncid']) + ' no text')
 			return
 		intro = response.xpath('//div[@class="lemma-summary"]//text()').extract()
 		if not intro:
