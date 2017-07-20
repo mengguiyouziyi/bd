@@ -10,6 +10,8 @@ import scrapy
 
 class BaikeItem(scrapy.Item):
 	# define the fields for your item here like:
-	id = scrapy.Field()
-	quan_cheng = scrapy.Field()
+	ncid = scrapy.Field()
+	cname = scrapy.Field()
+	htm = scrapy.Field()
 	intro = scrapy.Field()
+	crawl_time = scrapy.Field()

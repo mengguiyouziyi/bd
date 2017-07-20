@@ -17,17 +17,17 @@ sys.path.append(father_path)
 
 def send_key(key):
 	"""
-	ids:123,234,234, quan_cheng:美团，百度
+		本机 localhost；公司 etl2.innotree.org；服务器 etl1.innotree.org
 	"""
 	mysql = pymysql.connect(host='etl1.innotree.org', user='spider', password='spider', db='spider', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
 	# mysql = pymysql.Connect(host='localhost', user='root', password='3646287', db='spiders', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
 	try:
 		with mysql.cursor() as cursor:
-			sql = """select id, quan_cheng from tyc_jichu_bj ORDER BY id"""
-			cursor.execute(sql)
+			sql = """select ncid, cname from comp_baseinfo ORDER BY id"""
 			print('execute begain')
+			cursor.execute(sql)
 			results = cursor.fetchall()
-			values = [str(i['id']) + '~' + i['quan_cheng'].strip() for i in results]
+			values = [str(i['ncid']) + '~' + i['cname'].strip() for i in results]
 	finally:
 		mysql.close()
 
@@ -40,4 +40,4 @@ def send_key(key):
 
 
 if __name__ == '__main__':
-	send_key(key='id_quan_cheng')
+	send_key(key='ncid_cname')

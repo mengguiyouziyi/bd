@@ -14,12 +14,12 @@ import os
 class HtmlWriterPipeline(object):
 
 	def process_item(self, item, spider):
-		# path = os.path.abspath('/data1/spider/menggui/bdbk_html/%s.html' % item['id'])
-		# path = os.path.abspath('/data/menggui/bdbk_html/%s.html' % item['id'])
-		path = os.path.abspath('/home/lijian.sun/bdbk_html/%s.html' % item['id'])
+		path = os.path.abspath('/data1/spider/menggui/cs_bk_html/%s.html' % item['ncid'])
+		# path = os.path.abspath('/data/menggui/cs_bk_html/%s.html' % item['ncid'])
+		# path = os.path.abspath('/home/lijian.sun/cs_bk_html/%s.html' % item['ncid'])
 		with codecs.open(path, 'w', 'utf-8') as file:
 			file.write(item['htm'])
-			print(str(item['id']) + ' success')
+			print(str(item['ncid']) + ' success')
 		return item
 
 
@@ -34,8 +34,11 @@ class MysqlPipeline(object):
 		self.cursor = self.conn.cursor()
 
 	def process_item(self, item, spider):
-		sql = """insert into bdbaike_bj(id, quan_cheng, intro) VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE id=VALUES(id), quan_cheng=VALUES(quan_cheng), intro=VALUES(intro)"""
-		args = (item["id"], item["quan_cheng"], item["intro"])
+		# sql = """insert into bdbaike_bj(ncid, cname, intro, crawl_time) VALUES(%s, %s, %s, %s) ON DUPLICATE KEY UPDATE quan_cheng=VALUES(cname), intro=VALUES(intro)"""
+		sql = """replace into comp_baseinfo_bk(ncid, cname, intro, crawl_time) VALUES(%s, %s, %s, %s)"""
+		args = (item["ncid"], item["cname"], item["intro"], item["crawl_time"])
 		self.cursor.execute(sql, args=args)
 		self.conn.commit()
-		print(str(item['id']) + ' success')
+		print(str(item['ncid']) + ' success')
+
+		return item
