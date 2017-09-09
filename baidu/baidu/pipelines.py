@@ -27,7 +27,6 @@ class MysqlPipeline(object):
 	"""
 	本机 localhost；公司 etl2.innotree.org；服务器 etl1.innotree.org
 	"""
-
 	def __init__(self):
 		self.conn = pymysql.connect(host='etl1.innotree.org', port=3308, user='spider', password='spider', db='spider', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
 		# self.conn = pymysql.connect(host='localhost', user='root', password='3646287', db='spider', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
