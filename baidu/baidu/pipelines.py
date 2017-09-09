@@ -35,10 +35,10 @@ class MysqlPipeline(object):
 
 	def process_item(self, item, spider):
 		# sql = """insert into bdbaike_bj(ncid, cname, intro, crawl_time) VALUES(%s, %s, %s, %s) ON DUPLICATE KEY UPDATE quan_cheng=VALUES(cname), intro=VALUES(intro)"""
-		sql = """replace into comp_baseinfo_bk(ncid, cname, intro, crawl_time) VALUES(%s, %s, %s, %s)"""
-		args = (item["ncid"], item["cname"], item["intro"], item["crawl_time"])
+		sql = """replace into tyc_jichu_quan_bk_intro (id, quan_cheng, intro, crawl_time) VALUES(%s, %s, %s, %s)"""
+		args = (item["id"], item["quan_cheng"], item["intro"], item["crawl_time"])
 		self.cursor.execute(sql, args=args)
 		self.conn.commit()
-		print(str(item['ncid']) + ' insert success')
+		print(str(item['ncid']))
 
 		return item

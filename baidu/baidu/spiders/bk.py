@@ -13,7 +13,7 @@ class BkSpider(scrapy.Spider):
 
 	def start_requests(self):
 		while True:
-			ncid_cname = get_key('ncid_cname')
+			ncid_cname = get_key('baike_ncid_cname')
 			# 	ncid_cname = 225916
 			if not ncid_cname:
 				continue
@@ -38,7 +38,7 @@ class BkSpider(scrapy.Spider):
 		if not intro:
 			return
 		intro = ''.join([x.strip() for x in intro])
-		item['htm'] = response.text
+		# item['htm'] = response.text
 		item['intro'] = intro
 		item["crawl_time"] = datetime.now().strftime(SQL_DATETIME_FORMAT)
 
