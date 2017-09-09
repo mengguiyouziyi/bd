@@ -38,6 +38,6 @@ class MysqlPipeline(object):
 		args = (item["id"], item["quan_cheng"], item["intro"], item["crawl_time"])
 		self.cursor.execute(sql, args=args)
 		self.conn.commit()
-		print(str(item['ncid']))
+		print(str(item['id']))
 
 		return item
