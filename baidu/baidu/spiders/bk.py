@@ -18,12 +18,12 @@ class BkSpider(scrapy.Spider):
 			if not ncid_cname:
 				continue
 			lis = ncid_cname.split('~')
-			ncid = int(lis[0])
-			cname = lis[1]
+			id = int(lis[0])
+			quan_cheng = lis[1]
 			item = BaikeItem()
-			item['ncid'] = ncid
-			item['cname'] = cname
-			self.url = self.baike_url.format(cname=cname)
+			item['id'] = id
+			item['quan_cheng'] = quan_cheng
+			self.url = self.baike_url.format(cname=quan_cheng)
 			yield scrapy.Request(self.url, meta={'item': item}, dont_filter=True)
 
 	def parse(self, response):
